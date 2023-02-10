@@ -135,12 +135,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                     catch (Exception e)
                     {
-                        editText.setText("Error in Equation");
+                        editText.setText("Error");
                     }
                 }
                 catch (ArithmeticException a)
                 {
-                    editText.setText("Error in Equation");
+                    editText.setText("Error");
                 }
 
 
