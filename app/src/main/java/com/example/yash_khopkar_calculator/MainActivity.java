@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+
 public class MainActivity extends AppCompatActivity {
     Button button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,
             buttondot,buttonclr,buttonmul,buttonadd,buttonsub,buttondiv,buttoneql;
@@ -105,74 +108,42 @@ public class MainActivity extends AppCompatActivity {
         });
         buttonadd.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if(editText==null) {
-                    editText.setText("");
-                }else
-
-                {
-                    Valueone=Float.parseFloat(editText.getText()+"");
-                    Addition=true;
-                    editText.setText(null);
-                }
-            }
+            public void onClick(View v) { editText.setText(editText.getText()+"+");}
         });
         buttonsub.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (editText == null) {
-                    editText.setText("");
-                } else {
-                    Valueone = Float.parseFloat(editText.getText() + "");
-                    Substraction= true;
-                    editText.setText(null);
-                }
-            }
+            public void onClick(View v) { editText.setText(editText.getText()+"-");}
         });
         buttonmul.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (editText == null) {
-                    editText.setText("");
-                } else {
-                    Valueone = Float.parseFloat(editText.getText() + "");
-                    Multiplication = true;
-                    editText.setText(null);
-                }
-            }
+            public void onClick(View v) { editText.setText(editText.getText()+"*");}
         });
         buttondiv.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (editText == null) {
-                    editText.setText("");
-                } else {
-                    Valueone = Float.parseFloat(editText.getText() + "");
-                    Division = true;
-                    editText.setText(null);
-                }
-            }
+            public void onClick(View v) { editText.setText(editText.getText()+"/");}
         });
         buttoneql.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Valuetwo = Float.parseFloat(editText.getText() + "");
-                if (Addition == true) {
+                String txt= editText.getText().toString();
+                try {
+                    Expression expression = null;
+                    try {
+                        expression = new ExpressionBuilder(txt).build();
+                        double result = expression.evaluate();
+                        editText.setText(txt +" = "+ result);
+                    }
+                    catch (Exception e)
+                    {
+                        editText.setText("Error in Equation");
+                    }
+                }
+                catch (ArithmeticException a)
+                {
+                    editText.setText("Error in Equation");
+                }
 
-                    editText.setText( Valueone + Valuetwo + "");
-                    Addition = false;
-                }
-                if (Substraction == true) {
-                    editText.setText(Valueone - Valuetwo + "");
-                    Substraction = false;
-                }
-                if (Multiplication == true) {
-                    editText.setText(Valueone * Valuetwo + "");
-                    Multiplication = false;
-                }
-                if (Division == true)
-                    editText.setText(Valueone / Valuetwo + "");
-                Division = false;
+
             }
         });
         buttonclr.setOnClickListener(new View.OnClickListener() {
