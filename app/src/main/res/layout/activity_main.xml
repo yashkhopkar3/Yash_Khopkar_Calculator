@@ -31,24 +31,28 @@
         android:textSize="34sp"
         android:textStyle="normal|bold|italic" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="369dp"
-        android:layout_height="201dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp"
+    <ScrollView
+        android:id="@+id/a"
+        android:layout_width="match_parent"
+        android:layout_height="218dp"
+        android:layout_marginTop="120dp"
         android:background="#D2FFEB3B"
-        android:editable="false"
-        android:ems="10"
-        android:enabled="false"
-        android:fontFamily="casual"
-        android:foregroundGravity="bottom|center_vertical|center|right|center_horizontal"
-        android:gravity="bottom|right"
-        android:inputType="none"
-        android:textColor="#0B0000"
-        android:textSize="34sp"
-        android:textStyle="normal|bold" />
+        android:gravity="bottom">
+
+        <TextView
+            android:id="@+id/Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:ems="10"
+            android:enabled="false"
+            android:fontFamily="casual"
+            android:gravity="bottom|right"
+            android:inputType="none"
+            android:textColor="#0B0000"
+            android:textSize="34sp"
+            android:textStyle="normal|bold" />
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="380dp"
