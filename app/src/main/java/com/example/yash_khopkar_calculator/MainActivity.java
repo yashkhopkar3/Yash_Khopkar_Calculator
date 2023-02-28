@@ -185,5 +185,12 @@ public class MainActivity extends AppCompatActivity {
             String b[] = a.split(" ");
             textView.setText(b[1]);
         }
+        if (textView.getText().toString().contains(" +") || textView.getText().toString().contains(" -")
+                || textView.getText().toString().contains(" *") || textView.getText().toString().contains(" /")) {
+
+            String abc = textView.getText().toString();
+            String bd[] = abc.split("[= ]+");
+            textView.setText(bd[1]+bd[2]);
+        }
     }
 }
