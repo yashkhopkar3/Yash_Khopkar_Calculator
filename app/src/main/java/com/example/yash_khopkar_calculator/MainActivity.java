@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class MainActivity extends AppCompatActivity {
     Button button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,
-            buttondot,buttonclr,buttonmul,buttonadd,buttonsub,buttondiv,buttoneql;
+            buttondot,buttonclr,buttonmul,buttonadd,buttonsub,buttondiv,buttoneql,buttononeclr;
 
     TextView textView;
     String ans;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         buttonmul=(Button)findViewById(R.id.buttonmul);
         buttoneql=(Button)findViewById(R.id.buttoneql);
         buttonclr=(Button)findViewById(R.id.buttonclr);
+        buttononeclr=(Button)findViewById(R.id.buttononeclr);
         textView=(TextView) findViewById(R.id.Text);
 
             button1.setOnClickListener(new View.OnClickListener() {
@@ -173,6 +175,22 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText("");
             }
         });
+        buttononeclr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String c = textView.getText().toString();
+                int a=c.length();
+                if(a!=0){
+                    textView.setText(c.substring(0, a-1));
+                }
+                if(a==0){
+                    textView.setText("");
+                    Toast.makeText(MainActivity.this, "Please give input", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
     }
     public void check() {
         if (textView.getText().toString().contains(" 1") || textView.getText().toString().contains(" 2")

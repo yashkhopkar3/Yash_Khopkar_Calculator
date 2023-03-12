@@ -43,7 +43,7 @@
             android:id="@+id/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"
+            android:editable="true"
             android:ems="10"
             android:enabled="false"
             android:fontFamily="casual"
@@ -317,8 +317,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#F1ABA5"
+            android:layout_marginRight="8dp"
             android:fontFamily="casual"
             android:text="CLEAR"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+        <Button
+            android:id="@+id/buttononeclr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#F1ABA5"
+            android:fontFamily="casual"
+            android:layout_marginRight="10dp"
+            android:text="\u232b"
             android:textSize="24sp"
             android:textStyle="normal|bold" />
     </LinearLayout>
